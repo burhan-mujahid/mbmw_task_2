@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1049867308879",
+    "project_id": "mbmwtask2",
+    "storage_bucket": "mbmwtask2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049867308879:android:bbd3f2bfee437eb4e6bf3a",
+        "android_client_info": {
+          "package_name": "com.burhan.techswivel.mbmw_task_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXQfDSXzSQl2_30iFvbybHYuFhrwDWTr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
