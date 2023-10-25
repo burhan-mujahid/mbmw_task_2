@@ -2,7 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mbmw_task_2/ui/auth_screens/signup_screen.dart';
-import '../../utils/utils.dart';
+import 'package:mbmw_task_2/utils/extension_funtions.dart';
+
 import '../../widgets/auth_button.dart';
 import '../../widgets/auth_screen_heading.dart';
 import '../../widgets/credential_input_field.dart';
@@ -17,7 +18,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _isPasswordVisible = false;
   bool loading = false;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -46,12 +46,13 @@ class _LoginScreenState extends State<LoginScreen> {
         loading = false;
       });
 
-      Utils().toastMessage(value.user!.email.toString());
+      context.showSuccessSnackBar('Login Successful');
+      //Utils().toastMessage('Login Successful');
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MainScreen()));
     }).onError((error, stackTrace) {
       debugPrint(error.toString());
-      Utils().toastMessage(error.toString());
+      context.showErrorSnackBar(error.toString());
       setState(() {
         loading = false;
       });
@@ -85,16 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: 'Enter Email',
                       prefixIcon: Icon(Icons.email),
                       controller: emailController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Please enter your email";
-                        }
-                        if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                            .hasMatch(value)) {
-                          return 'Please enter a valid email';
-                        }
-                        return null;
-                      },
+                      validator: (value) => value?.validateEmail(),
                       inputFormatter:
                           FilteringTextInputFormatter.singleLineFormatter,
                     ),
@@ -106,20 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: 'Password',
                       prefixIcon: Icon(Icons.lock),
                       controller: passwordController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Please enter your password";
-                        }
-
-                        if (value.length < 8) {
-                          return "Password must be at least 8 characters long";
-                        }
-                        if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$')
-                            .hasMatch(value)) {
-                          return 'Password must contain at least one letter and one number';
-                        }
-                        return null;
-                      },
+                      validator: (value) => value?.validatePassword(),
                       inputFormatter:
                           FilteringTextInputFormatter.singleLineFormatter,
                     ),

@@ -18,32 +18,30 @@ class AuthButton extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-        child: Container(
-          height: screenWidth * 0.115,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blue, Colors.blue[900]!],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(screenWidth * 0.03),
+      child: Container(
+        height: screenWidth * 0.115,
+        width: screenWidth * 0.85,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue, Colors.blue[900]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          child: Center(
-            child: loading
-                ? CircularProgressIndicator(
-                    strokeWidth: 3,
+          borderRadius: BorderRadius.circular(screenWidth * 0.03),
+        ),
+        child: Center(
+          child: loading
+              ? const CircularProgressIndicator(
+                  strokeWidth: 3,
+                  color: Colors.white,
+                )
+              : Text(
+                  title,
+                  style: TextStyle(
                     color: Colors.white,
-                  )
-                : Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: screenWidth * 0.04,
-                    ),
+                    fontSize: screenWidth * 0.04,
                   ),
-          ),
+                ),
         ),
       ),
     );

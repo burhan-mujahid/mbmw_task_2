@@ -17,10 +17,6 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final logoSize = screenWidth * 0.1;
-    final headingFontSize = screenWidth * 0.06;
-    final tagLineFontSize = screenWidth * 0.02;
-    final subHeadingFontSize = screenWidth * 0.03;
 
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +27,7 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              FlutterLogo(size: 40),
+              FlutterLogo(size: screenWidth * 0.1),
               SizedBox(width: screenWidth * 0.02),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +35,7 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
                   Text(
                     'Tech Swivel',
                     style: TextStyle(
-                      fontSize: headingFontSize,
+                      fontSize: screenWidth * 0.06,
                       fontFamily: 'Rubik Medium',
                       color: Colors.blue,
                     ),
@@ -47,7 +43,7 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
                   Text(
                     'Trainee Flutter Developer',
                     style: TextStyle(
-                      fontSize: tagLineFontSize,
+                      fontSize: screenWidth * 0.02,
                       fontFamily: 'Rubik Regular',
                       color: Colors.black,
                     ),
@@ -61,7 +57,7 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
             child: Text(
               widget.heading,
               style: TextStyle(
-                fontSize: headingFontSize,
+                fontSize: screenWidth * 0.06,
                 fontFamily: 'Rubik Medium',
                 color: Colors.blue,
               ),
@@ -72,7 +68,7 @@ class _AuthScreenHeadingState extends State<AuthScreenHeading> {
             child: Text(
               widget.subHeading,
               style: TextStyle(
-                fontSize: subHeadingFontSize,
+                fontSize: screenWidth * 0.03,
                 fontFamily: 'Rubik Regular',
                 color: Colors.black,
               ),

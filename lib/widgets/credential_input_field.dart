@@ -64,14 +64,14 @@ class _CredentialInputFieldState extends State<CredentialInputField> {
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.lightBlue,
-                width: 1,
+                width: screenWidth * 0.003,
               ),
               borderRadius: BorderRadius.circular(screenWidth * 0.03),
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.lightBlue,
-                width: 1,
+                width: screenWidth * 0.003,
               ),
               borderRadius: BorderRadius.circular(screenWidth * 0.03),
             ),
